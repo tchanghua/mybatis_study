@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mapper namespace="com.tch.dao.UserDao">
+
+    <!--sql的唯一标识：namespace.id来组成 ： statementId-->
+    <select id="findAll" resultType="com.tch.user.User" >
+        select * from x_user
+    </select>
+
+
+    <!--
+        User user = new User()
+        user.setId(1);
+        user.setUsername("zhangsan")
+    -->
+    <select id="selectOne" resultType="com.tch.user.User" paramterType="com.tch.user.User">
+        select * from x_user where id = #{id} and name = #{name}
+    </select>
+
+    <select id="delete" paramterType="com.tch.user.User">
+        delete from x_user where id = #{id}
+    </select>
+
+    <select id="update" paramterType="com.tch.user.User">
+        update x_user set name = #{name} where id = #{id}
+    </select>
+
+    <select id="insert" paramterType="com.tch.user.User">
+        insert into x_user (id, name) VALUES (#{id},#{name})
+    </select>
+
+
+
+</mapper>
